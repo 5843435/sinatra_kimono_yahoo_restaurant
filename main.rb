@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require 'active_record'
 require 'rest_client'
 require 'json'
 

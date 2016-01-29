@@ -55,26 +55,20 @@
   <div class="container">
     <h2>渋谷・表参道・青山</h2>
     <div class="row">
-        
 <% 
   cnt = 0
-
 # @shibuya_shops これだけ変更したら動く、共通化したい。
   for shop in @shibuya_shops do
-  
-  if cnt ===4 then
-    break
-  end
-    
+    if cnt ===4 then
+      break
+    end    
     #情報が少ない店舗は読み飛ばす。
-  if shop["copy2"]  === "" then
-      next
-  end
-  
-  cnt +=1
-  
-%>
-      
+    if shop["copy2"]  === "" then
+        next
+    end
+    
+    cnt +=1
+%>      
       <% # 同じコード、共通化したい %>
       <div class="col-sm-6 col-md-3">
         <div class="thumbnail">
@@ -87,34 +81,25 @@
           </div>
         </div>
       </div>
-
-      <% end %>
-
+<% end %>
   </div>
   </div> <!-- /container -->
-
+  
   <div class="container">
     <h2>新宿・代々木・大久保</h2>
     <div class="row">
-
-      <% 
-cnt = 0
-for shop in @shinjuku_shops do
-
-  if cnt ===4 then
-    break
-  end
-
+<% 
+  cnt = 0
+  for shop in @shinjuku_shops do
+    if cnt ===4 then
+      break
+    end
     #情報が少ない店舗は読み飛ばす。
     if shop["copy2"]  === "" then
       next
     end
-
-      cnt +=1
-
-      %>
-
-
+    cnt +=1
+%>
       <div class="col-sm-6 col-md-3">
         <div class="thumbnail">
           <img src="<%= shop['image']['src'] %>" alt="<%= shop['image']['alt'] %>">
@@ -126,34 +111,25 @@ for shop in @shinjuku_shops do
           </div>
         </div>
       </div>
-
-      <% end %>
-
+  <% end %>
     </div>
   </div> <!-- /container -->
 
   <div class="container">
     <h2>銀座・新橋・有楽町</h2>
     <div class="row">
-
-      <% 
-cnt = 0
-for shop in @ginza_shops do
-
-  if cnt ===4 then
-    break
-  end
-
+<% 
+  cnt = 0
+  for shop in @ginza_shops do
+    if cnt ===4 then
+      break
+    end
     #情報が少ない店舗は読み飛ばす。
     if shop["copy2"]  === "" then
       next
     end
-
-      cnt +=1
-
-      %>
-
-
+    cnt +=1
+%>
       <div class="col-sm-6 col-md-3">
         <div class="thumbnail">
           <img src="<%= shop['image']['src'] %>" alt="<%= shop['image']['alt'] %>">
@@ -165,9 +141,7 @@ for shop in @ginza_shops do
           </div>
         </div>
       </div>
-
-      <% end %>
-
+<% end %>
     </div>
   </div> <!-- /container -->
 
