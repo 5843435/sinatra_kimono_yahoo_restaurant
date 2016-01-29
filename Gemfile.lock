@@ -16,15 +16,24 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.3)
     builder (3.2.2)
+    domain_name (0.5.25)
+      unf (>= 0.0.5, < 1.0.0)
+    ffi (1.9.10-x86-mingw32)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     i18n (0.7.0)
     json (1.8.3)
+    mime-types (2.99)
     minitest (5.8.4)
-    paint (1.0.1)
+    netrc (0.11.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
-    restclient (0.11.3)
-      paint (~> 1.0)
+    rest-client (1.8.0-x86-mingw32)
+      ffi (~> 1.9)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -33,13 +42,16 @@ GEM
     tilt (2.0.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1-x86-mingw32)
 
 PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
   activerecord (~> 4.2, >= 4.2.5.1)
-  restclient (~> 0.11.3)
+  rest-client (~> 1.8)
   sinatra (~> 1.4, >= 1.4.7)
 
 BUNDLED WITH

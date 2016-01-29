@@ -13,8 +13,6 @@
 
 </head>
 <body>
- <%= p @shibuya_shops_xml %>
-
   <!-- Fixed navbar -->
   <nav class="navbar navbar-default">
     <div class="container">
@@ -54,61 +52,124 @@
     </div>
   </nav>
 
+  <div class="container">
+    <h2>渋谷・表参道・青山</h2>
+    <div class="row">
+        
+<% 
+  cnt = 0
 
-
-  <%= for shop in @shibuya_shops do %>
-
-  <%= puts shop %>
-
-  <%= end %>
-
-      <div class="container">
-        <h2>渋谷・表参道・青山</h2>
-        <div class="row">
-          <div class="col-sm-6 col-md-3">
-            <div class="thumbnail">
-              <img src="..." alt="...">
-              <div class="caption">
-                <h3>Thumbnail label</h3>
-                <p>...</p>
-                <p><a href="#" class="btn btn-primary" role="button">詳細を見る</a></p>
-              </div>
-            </div>
+# @shibuya_shops これだけ変更したら動く、共通化したい。
+  for shop in @shibuya_shops do
+  
+  if cnt ===4 then
+    break
+  end
+    
+    #情報が少ない店舗は読み飛ばす。
+  if shop["copy2"]  === "" then
+      next
+  end
+  
+  cnt +=1
+  
+%>
+      
+      <% # 同じコード、共通化したい %>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <img src="<%= shop['image']['src'] %>" alt="<%= shop['image']['alt'] %>">
+          <div class="caption">
+            <h3><a href="<%= shop['shop_name']['href'] %>"><%= shop['shop_name']['text'] %></a></h3>
+            <p><%= shop["copy1"] %><%= shop["copy2"] %><%= shop["copy3"] %></p>
+            <p>カテゴリ：<%= shop["category"]  %> <%= shop["budget"] %></p>
+            <p><a href="<%= shop['shop_name']['href'] %>" class="btn btn-primary" role="button">詳細を見る</a></p>
           </div>
-          <div class="col-sm-6 col-md-3">
-            <div class="thumbnail">
-              <img src="..." alt="...">
-              <div class="caption">
-                <h3>Thumbnail label</h3>
-                <p>...</p>
-                <p><a href="#" class="btn btn-primary" role="button">詳細を見る</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-3">
-            <div class="thumbnail">
-              <img src="..." alt="...">
-              <div class="caption">
-                <h3>Thumbnail label</h3>
-                <p>...</p>
-                <p><a href="#" class="btn btn-primary" role="button">詳細を見る</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-3">
-            <div class="thumbnail">
-              <img src="..." alt="...">
-              <div class="caption">
-                <h3>Thumbnail label</h3>
-                <p>...</p>
-                <p><a href="#" class="btn btn-primary" role="button">詳細を見る</a></p>
-              </div>
-            </div>
-          </div>
-
         </div>
-      </div> <!-- /container -->
+      </div>
 
+      <% end %>
+
+  </div>
+  </div> <!-- /container -->
+
+  <div class="container">
+    <h2>新宿・代々木・大久保</h2>
+    <div class="row">
+
+      <% 
+cnt = 0
+for shop in @shinjuku_shops do
+
+  if cnt ===4 then
+    break
+  end
+
+    #情報が少ない店舗は読み飛ばす。
+    if shop["copy2"]  === "" then
+      next
+    end
+
+      cnt +=1
+
+      %>
+
+
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <img src="<%= shop['image']['src'] %>" alt="<%= shop['image']['alt'] %>">
+          <div class="caption">
+            <h3><a href="<%= shop['shop_name']['href'] %>"><%= shop['shop_name']['text'] %></a></h3>
+            <p><%= shop["copy1"] %><%= shop["copy2"] %><%= shop["copy3"] %></p>
+            <p>カテゴリ：<%= shop["category"]  %> <%= shop["budget"] %></p>
+            <p><a href="<%= shop['shop_name']['href'] %>" class="btn btn-primary" role="button">詳細を見る</a></p>
+          </div>
+        </div>
+      </div>
+
+      <% end %>
+
+    </div>
+  </div> <!-- /container -->
+
+  <div class="container">
+    <h2>銀座・新橋・有楽町</h2>
+    <div class="row">
+
+      <% 
+cnt = 0
+for shop in @ginza_shops do
+
+  if cnt ===4 then
+    break
+  end
+
+    #情報が少ない店舗は読み飛ばす。
+    if shop["copy2"]  === "" then
+      next
+    end
+
+      cnt +=1
+
+      %>
+
+
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <img src="<%= shop['image']['src'] %>" alt="<%= shop['image']['alt'] %>">
+          <div class="caption">
+            <h3><a href="<%= shop['shop_name']['href'] %>"><%= shop['shop_name']['text'] %></a></h3>
+            <p><%= shop["copy1"] %><%= shop["copy2"] %><%= shop["copy3"] %></p>
+            <p>カテゴリ：<%= shop["category"]  %> <%= shop["budget"] %></p>
+            <p><a href="<%= shop['shop_name']['href'] %>" class="btn btn-primary" role="button">詳細を見る</a></p>
+          </div>
+        </div>
+      </div>
+
+      <% end %>
+
+    </div>
+  </div> <!-- /container -->
 
 </body>
 </html>

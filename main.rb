@@ -2,10 +2,23 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
 require 'rest_client'
-require 'rexml/document'
+require 'json'
 
 get '/' do
-  @shibuya_shops_xml = REXML::Document.new(RestClient.get('https://www.kimonolabs.com/api/34330hpu?apikey=cg9djd7otr92ApB2hF22VSs8vEWo7vK3')).root
+  rest = RestClient.get 'https://www.kimonolabs.com/api/34330hpu?apikey=cg9djd7otr92ApB2hF22VSs8vEWo7vK3'
+  rest_json = JSON.parse(rest)
+  # 店舗情報だけ渡す。中身は配列になっている。
+  @shibuya_shops = rest_json["results"]["collection1"]
+  
+  rest = RestClient.get 'https://www.kimonolabs.com/api/de9yfkog?apikey=cg9djd7otr92ApB2hF22VSs8vEWo7vK3'
+  rest_json = JSON.parse(rest)
+  # 店舗情報だけ渡す。中身は配列になっている。
+  @shinjuku_shops = rest_json["results"]["collection1"]
+
+  rest = RestClient.get 'https://www.kimonolabs.com/api/3bq74ql2?apikey=cg9djd7otr92ApB2hF22VSs8vEWo7vK3'
+  rest_json = JSON.parse(rest)
+  # 店舗情報だけ渡す。中身は配列になっている。
+  @ginza_shops = rest_json["results"]["collection1"]
 
   erb :index
 end
