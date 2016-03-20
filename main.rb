@@ -1,4 +1,5 @@
 require 'sinatra'
+Bundler.require
 require 'sinatra/reloader'
 require 'rest_client'
 require 'json'
